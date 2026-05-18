@@ -5,32 +5,31 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NUXLWebsite from "@/pages/NUXLWebsite";
 import Login from "@/pages/Login";
 import AdminPanel from "@/pages/AdminPanel";
-import NotFound from "@/pages/not-found";
-
 const queryClient = new QueryClient();
 
 function Router() {
-  return (
-    <Switch>
-      <Route path="/" component={NUXLWebsite} />
-      <Route path="/login" component={Login} />
-      <Route path="/admin" component={AdminPanel} />
-      <Route component={NotFound} />
-    </Switch>
-  );
+  return (
+    <Switch>
+      <Route path="/" component={NUXLWebsite} />
+      <Route path="/login" component={Login} />
+      <Route path="/admin" component={AdminPanel} />
+      <Route component={NotFound} />
+    </Switch>
+  );
 }
 
 function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-          <Router />
-        </WouterRouter>
-        <Toaster />
-      </TooltipProvider>
-    </QueryClientProvider>
-  );
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+          <Router />
+        </WouterRouter>
+        <Toaster />
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
 }
 
 export default App;
+
